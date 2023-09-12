@@ -1,16 +1,52 @@
-# Azure Virtual WAN
-
 ## Purpose
 
-Azure Virtual WAN is a networking service provided by Microsoft Azure that allows you to create a wide-area network (WAN) topology that is optimized for Azure workloads. It simplifies the connectivity of your branch offices, remote users, and Azure resources by providing a unified and easy-to-manage network infrastructure. Azure Virtual WAN enables you to:
+This repository contains Terraform code to deploy Azure Virtual WAN, a networking service that simplifies and optimizes network connectivity between your on-premises and Azure resources.
 
-- **Connectivity**: Establish secure and optimized connections between your on-premises networks, Azure virtual networks, and remote users.
-- **Global Reach**: Extend your network's reach across regions and continents, providing low-latency access to Azure services.
-- **Traffic Optimization**: Route traffic efficiently through Azure's global network to ensure optimal performance and reliability.
-- **Security**: Implement network security policies and firewall rules to protect your resources and data.
-- **Simplified Management**: Use a centralized management interface to configure, monitor, and troubleshoot your WAN resources.
+### What is Azure Virtual WAN?
 
-## Notes
-- Ensure you have the necessary permissions and authentication configured to deploy the resources using this Terraform code. Additionally, follow the documentation links provided to gain a deeper understanding of Azure Virtual WAN, VPN Gateway, and Log Analytics Workspace to make informed decisions and optimize your setup for S2S troubleshooting.
+Azure Virtual WAN is a cloud-native networking service provided by Microsoft Azure. It serves as a central hub for a number of Azure services including Virtual Networks (vnets), site-to-site, point-to-site and Express Route. Azure Virtual WAN also allowing you to efficiently connect your on-premises networks, branch offices, and Azure resources.
 
-- The Log Analytics Workspace can take up to 30 minutes to show logs once the diagnostic settings are created.
+Azure Virtual WAN offers a range of capabilities, including global transit routing, secure connectivity options, and seamless integration with Azure services. It simplifies network management, enhances performance, and ensures secure and reliable network connectivity for your organization's workloads and resources.
+
+### Key Benefits:
+
+1. **Centralized Network Management:**
+   - Azure Virtual WAN provides a centralized hub for managing and monitoring your network resources, simplifying network administration.
+
+2. **Improved Connectivity and Performance:**
+   - Enhance the connectivity and performance of your Azure workloads with optimized routing and global network backbone.
+
+3. **Secure Transit Between Branches and Azure:**
+   - Establish secure transit connectivity between your branch offices and Azure, ensuring data is transmitted safely over the network.
+
+4. **High Availability:**
+   - Virtual WAN offers built-in redundancy and high availability features, reducing network downtime and ensuring business continuity.
+
+5. **Integration with Azure Services:**
+   - Seamlessly connect to various Azure services, including Virtual Networks (VNets), ExpressRoute, and VPN gateways.
+
+6. **Global Reach:**
+   - Extend your network reach globally with Azure's extensive global network infrastructure.
+
+7. **Cost Savings:**
+   - Optimize network costs by leveraging Azure's efficient data transfer and routing, reducing data egress charges.
+
+8. **SD-WAN Integration:**
+   - Integrate Azure Virtual WAN with Azure Virtual WAN SD-WAN partners for enhanced branch-to-cloud connectivity and management.
+
+9. **Scalability:**
+   - Easily scale your network to accommodate growing business needs by adding branches and connections as required.
+
+10. **Security and Compliance:**
+    - Enhance network security and compliance with built-in features like Azure Firewall integration and security policies.
+
+11. **Traffic Optimization:**
+    - Efficiently route traffic through the Azure backbone for lower latency and improved application performance.
+
+12. **Simplified Branch Connectivity:**
+    - Streamline branch connectivity with a simplified setup process, reducing deployment complexity.
+
+With Azure Virtiual WAN, you can optimze your network architecture, improve performance, and ensure secure and reliable network connectivity between your on-premises locations and Azure resources.
+
+## Supporting Links
+[Azure Virtual WAN Overview](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about)
