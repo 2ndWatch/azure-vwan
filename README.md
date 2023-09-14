@@ -54,3 +54,5 @@ With Azure Virtiual WAN, you can optimze your network architecture, improve perf
 
 ## Supporting Links
 [Azure Virtual WAN Overview](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about)
+[Azure Firewall Overview](https://learn.microsoft.com/en-us/azure/firewall/overview)
+[Azure Hub-spoke architecture with VWAN](https://learn.microsoft.com/en-us/azure/architecture/networking/hub-spoke-vwan-architecture)
