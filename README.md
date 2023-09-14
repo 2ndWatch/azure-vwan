@@ -52,6 +52,7 @@ Azure Virtual WAN offers a range of capabilities, including global transit routi
 
 With Azure Virtiual WAN, you can optimze your network architecture, improve performance, and ensure secure and reliable network connectivity between your on-premises locations and Azure resources.
 
+
 ## Supporting Links
 [Azure Virtual WAN Overview](https://learn.microsoft.com/en-us/azure/virtual-wan/virtual-wan-about)
 [Azure Firewall Overview](https://learn.microsoft.com/en-us/azure/firewall/overview)
