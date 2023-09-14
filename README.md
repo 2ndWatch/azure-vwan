@@ -1,12 +1,15 @@
 ## Purpose
 
-This repository contains Terraform code to deploy Azure Virtual WAN, a networking service that simplifies and optimizes network connectivity between your on-premises and Azure resources.
+This repository contains sample Terraform code to deploy Azure Virtual WAN, Azure Firewall, and Virtual Networks (vnets) to create a secure hub-and-spoke network architecture within Azure.
 
 ### What is Azure Virtual WAN?
 
-Azure Virtual WAN is a cloud-native networking service provided by Microsoft Azure. It serves as a central hub for a number of Azure services including Virtual Networks (vnets), site-to-site, point-to-site and Express Route. Azure Virtual WAN also allowing you to efficiently connect your on-premises networks, branch offices, and Azure resources.
+Azure Virtual WAN is a cloud-native networking service provided by Microsoft Azure. It serves as a central hub for a number of Azure services including Virtual Networks (vnets), site-to-site, point-to-site, Express Route and more. Azure Virtual WAN also allowing you to efficiently connect your on-premises networks, branch offices, and Azure SaaS solutions.
 
 Azure Virtual WAN offers a range of capabilities, including global transit routing, secure connectivity options, and seamless integration with Azure services. It simplifies network management, enhances performance, and ensures secure and reliable network connectivity for your organization's workloads and resources.
+
+### High-Level Design
+
 
 ### Key Benefits:
 

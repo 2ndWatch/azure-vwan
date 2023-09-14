@@ -1,5 +1,5 @@
 module "vwan" {
-  source = "../terraform-modules/vwan"
+  source = "../modules/vwan"
 
   resource_group_name            = "demo-rg"
   disable_vpn_encryption         = false

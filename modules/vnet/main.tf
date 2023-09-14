@@ -20,7 +20,7 @@ resource "azurerm_subnet" "subnets" {
 
   name                                           = each.value["name"]
   resource_group_name                            = each.value["resource_group_name"]
-  virtual_network_name                           = azurerm_virtual_network.vnet.name
+  virtual_network_name                           = azurerm_virtual_network.this.name
   address_prefixes                               = each.value["address_prefixes"]
   enforce_private_link_endpoint_network_policies = each.value["private_link_service_network_policies_enabled"]
 }
@@ -30,7 +30,7 @@ resource "azurerm_subnet" "delegation_subnets" {
 
   name                 = "${local.name}-snet"
   resource_group_name  = each.value["resource_group_name"]
-  virtual_network_name = azurerm_virtual_network.vnet.name
+  virtual_network_name = azurerm_virtual_network.this.name
   address_prefixes     = each.value["address_prefixes"]
 
   enforce_private_link_endpoint_network_policies = each.value["private_link_service_network_policies_enabled"]
@@ -51,13 +51,13 @@ resource "azurerm_subnet_route_table_association" "this" {
   subnet_id      = azurerm_subnet.subnets[each.value.subnet_name].id
   route_table_id = each.value.route_table_id
 
-  depends_on = [azurerm_virtual_network.vnet]
+  depends_on = [azurerm_virtual_network.this]
 }
 
 resource "azurerm_route_table" "this" {
   count = length(var.route_tables)
 
-  name                          = "az-${data.azurerm_resource_group.this.location}-${var.environment}-${var.route_tables[count.index]["name"]}-rt"
+  name                          = "${var.route_tables[count.index]["name"]}-rt"
   resource_group_name           = var.resource_group_name
   location                      = data.azurerm_resource_group.this.location
   disable_bgp_route_propagation = var.route_tables[count.index]["disable_bgp_route_propagation"]
