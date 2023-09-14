@@ -9,6 +9,7 @@ Azure Virtual WAN is a cloud-native networking service provided by Microsoft Azu
 Azure Virtual WAN offers a range of capabilities, including global transit routing, secure connectivity options, and seamless integration with Azure services. It simplifies network management, enhances performance, and ensures secure and reliable network connectivity for your organization's workloads and resources.
 
 ### High-Level Design
+![Azure Virtual WAN](https://github.com/2ndWatch/azure-vwan-with-azure-firewall/assets/86376621/f5498f6e-e4ee-4d29-9216-2a38ca602431)
 
 
 ### Key Benefits:
