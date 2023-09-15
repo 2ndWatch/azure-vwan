@@ -1,57 +1,56 @@
 # Terraform Azure Virtual WAN Module
 
-This Terraform module deploys an Azure Virtual WAN (vWAN) and associated resources, such as Virtual Hubs, in the specified Azure resource group. The module provides flexibility in configuring the Virtual WAN and Virtual Hubs based on input variables.
+This Terraform module deploys an Azure Virtual WAN with associated Virtual Hub.
+
+## Purpose
+
+The purpose of this Terraform code is to provision an Azure Virtual WAN and a Virtual Hub within a specified Azure Resource Group. The module allows you to configure various settings of the Virtual WAN and Virtual Hub, such as encryption options, routing preferences, and tags.
 
 ## Example Usage
 
 ```hcl
-module "virtual_wan" {
-  source                           = "path/to/azure-virtual-wan"
-  resource_group_name              = "my-resource-group"
-  disable_vpn_encryption            = false
-  allow_branch_to_branch_traffic    = false
-  office365_local_breakout_category = "None"
-  type                              = "Standard"
-  
+module "azure_virtual_wan" {
+  source  = "./path/to/module"
 
+  resource_group_name               = "my-resource-group"
+  disable_vpn_encryption            = true
+  allow_branch_to_branch_traffic    = false
+  office365_local_breakout_category = "Optimize"
+  type                              = "Standard"
+  tags = {
+    Environment = "Development"
+    Department  = "IT"
+  }
   address_prefix         = "10.0.0.0/24"
   hub_routing_preference = "None"
   sku                    = "Standard"
 }
-
-tags = {
-    environment = "dev"
-    project     = "my-app"
-  }
 ```
 
 ## Inputs
 
-The following table lists the input variables that can be configured when using this Terraform module:
+| Name                                | Description                                             | Type      | Default                   |
+|-------------------------------------|---------------------------------------------------------|-----------|---------------------------|
+| resource_group_name                 | The name of the resource group where the vWAN will be deployed. | string    |                           |
+| disable_vpn_encryption              | Boolean flag to specify whether branch to branch traffic is allowed. | bool      | false                     |
+| allow_branch_to_branch_traffic      | Allow branch to branch traffic.                         | bool      | false                     |
+| office365_local_breakout_category   | Specifies the Office365 local breakout category. Possible values include: Optimize, OptimizeAndAllow, All, None. | string | "None"                    |
+| type                                | Specifies the Virtual WAN type. Possible Values include: Basic and Standard. | string | "Standard"                |
+| tags                                | A mapping of tags to assign to the resource.            | map(string) | {}                      |
+| address_prefix                      | The address prefix to use for the Virtual Hub.          | string    |                           |
+| hub_routing_preference              | The Routing Preference to use for the Virtual Hub.       | string    | "None"                    |
+| sku                                 | Value for SKU.                                          | string    |                           |
 
-| Name                                | Description                                           | Type           | Default | Required |
-|-------------------------------------|-------------------------------------------------------|----------------|---------|----------|
-| resource_group_name                 | The name of the resource group where the vWAN will be deployed. | string         | N/A     | Yes      |
-| disable_vpn_encryption              | Boolean flag to specify whether branch to branch traffic is allowed. | bool           | false   | No       |
-| allow_branch_to_branch_traffic      | Allow branch to branch traffic.                     | bool           | false   | No       |
-| office365_local_breakout_category   | Specifies the Office365 local breakout category. Possible values include: Optimize, OptimizeAndAllow, All, None. | string | "None"  | No       |
-| type                                | Specifies the Virtual WAN type. Possible values include: Basic and Standard. | string     | "Standard" | No       |
-| tags                                | Tags to associate with the Virtual WAN and its resources. | map(string)  | {}    | No       |
-| address_prefix                      | The address prefix to use for the Virtual Hub.      | string         | N/A     | Yes      |
-| hub_routing_preference              | The Routing Preference to use for the Virtual Hub.   | string         | "None"  | No       |
-| sku                                 | The SKU (tier) of the Virtual Hub.                   | string         | N/A     | Yes      |
 ## Outputs
 
-The following table lists the output variables that are exposed after deploying the Virtual WAN and associated resources:
+| Name           | Description                             |
+|----------------|-----------------------------------------|
+| vwan_id        | The ID of the deployed vWAN.            |
+| vwan_hub_id    | The ID of the deployed vWAN hub.        |
 
-| Name          | Description                                           |
-|---------------|-------------------------------------------------------|
-| vwan_id       | The ID of the deployed Virtual WAN.                  |
-| vwan_hub_id   | The ID of the deployed Virtual WAN hub.              |
+## Important Notes
 
-## Note
-
-This module assumes you have already authenticated with Azure using the necessary credentials. Make sure to include the required provider configuration in your Terraform configuration before using this module. and provide the connection details. 
--->
+- Ensure that you have the necessary Azure permissions and configurations in place to deploy Virtual WAN resources.
+- Review and adjust the input variables according to your specific requirements.
 
 For more information on Azure Virtual WAN, please refer to the [Azure documentation](https://docs.microsoft.com/en-us/azure/virtual-wan/).
