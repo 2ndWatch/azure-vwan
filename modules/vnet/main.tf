@@ -7,7 +7,7 @@ data "azurerm_resource_group" "this" {
 }
 
 resource "azurerm_virtual_network" "this" {
-  name                = "${local.name}-vnet"
+  name                = "${local.name}--${var.vnet_name}-vnet"
   address_space       = var.address_space
   location            = data.azurerm_resource_group.this.location
   resource_group_name = var.resource_group_name
@@ -23,6 +23,8 @@ resource "azurerm_subnet" "subnets" {
   virtual_network_name                           = azurerm_virtual_network.this.name
   address_prefixes                               = each.value["address_prefixes"]
   enforce_private_link_endpoint_network_policies = each.value["private_link_service_network_policies_enabled"]
+
+  depends_on = [azurerm_virtual_network.this]
 }
 
 resource "azurerm_subnet" "delegation_subnets" {
@@ -43,6 +45,8 @@ resource "azurerm_subnet" "delegation_subnets" {
       actions = each.value["service_delegation_actions"]
     }
   }
+
+  depends_on = [azurerm_virtual_network.this]
 }
 
 resource "azurerm_subnet_route_table_association" "this" {
