@@ -2,13 +2,13 @@ terraform {
   required_version = ">= 1.0.0, < 2.0.0"
 
   backend "azurerm" {
-    resource_group_name  = "jacob-acton-test-rg"
-    storage_account_name = "2wjactonvwan"
-    container_name       = "tfstate"
-    key                  = "vwan-tf-state-east-us.tfstate"
+    resource_group_name  = ""
+    storage_account_name = ""
+    container_name       = ""
+    key                  = ""
     use_azuread_auth     = true
-    subscription_id      = "13b706d3-f7a2-4e89-91d3-921288c68091"
-    tenant_id            = "8242a0a9-c415-4206-be39-06637ad2817a"
+    subscription_id      = ""
+    tenant_id            = ""
   }
 
   required_providers {
@@ -20,7 +20,8 @@ terraform {
 }
 
 provider "azurerm" {
-  subscription_id      = "13b706d3-f7a2-4e89-91d3-921288c68091"
+  subscription_id      = ""
+  tenant_id            = ""
 
   features {}
 }
